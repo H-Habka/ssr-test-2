@@ -21,7 +21,9 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   useEffect(() => {
     setIsReady(true);
     document.documentElement.lang = i18n.language;
-    document.documentElement.dir = i18n.language === "en" ? "ltr" : "rtl";
+    document.documentElement.dir = i18n.language.startsWith("en")
+      ? "ltr"
+      : "rtl";
   }, []);
 
   const getLayout = Component.getLayout ?? ((page) => page);
