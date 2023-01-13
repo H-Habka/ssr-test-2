@@ -1,3 +1,23 @@
 {
-  "test": "اختبار"
+  "welcom to": "مرحباً بك إلى",
+  "login": "تسجيل الدخول",
+  "register": "التسجيل",
+  "The next generation social network & community! Connect with your friends and play with our quests and badges gamification system!": "الجيل القادم من الشبكات الاجتماعية و المجتمع! تواصل مع أصدقائك والعب مع نظام ألعاب المهام والشارات!",
+  "account login": "تسجيل الدخول إلى الحساب",
+  "forget password!": "نسيت كلمة المرور!",
+  "login to your account": "سجِّل الدخول إلى حسابك",
+  "login with your social account": "سجِّل الدخول بحسابك الاجتماعي",
+  "or": "أو",
+  "userName or email" : "اسم المستخدم او الإيميل",
+  "email" : "الإيميل",
+  "userName" : "اسم المستخدم",
+  "password" : "كلمة المرور",
+  "repeat password" : "اعد إدخال كلمة المرور",
+  "remember me" : "تذكر كلمة المرور",
+  "create your account" : "إنشاء حساب جديد",
+  "send me news and updates via email" : "أرسل لي الأخبار والتحديثات عبر البريد الإلكتروني",
+  "register now!" :"سجِّل الآن",
+  "you will receive a confirmation email in your inbox with a link to activate your account" : "ستتلقى رسالة تأكيد بالبريد الإلكتروني في صندوق الوارد الخاص بك مع رابط لتفعيل حسابك",
+  "if you have any problems" : "في حال واجهتك أي مشاكل",
+  "contact us": "اتصل بنا"
 }

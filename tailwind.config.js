@@ -1,7 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'class',
+  darkMode: "class",
   content: [
+    "./layouts/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
@@ -20,11 +21,17 @@ module.exports = {
         1024: "1024px",
         1230: "1230px",
         1360: "1360px",
-        1440: "1440px"
+        1440: "1440px",
       },
-      colors : {
-        
-      }
+      colors: {
+        lightOne: "#615DFA",
+        lightTwo: "#23D2E2",
+        darkOne: "#1D2333",
+        darkTwo: "#3F485F",
+        darkThree: "#40D04F",
+        darkFour: "#4FF461",
+        darkFive: "#7750F8",
+      },
     },
   },
   plugins: [require("tailwind-scrollbar"), require("tailwindcss-rtl")],

@@ -1,3 +1,25 @@
 {
-  "test": "test"
+  "welcom to": "Welcom To",
+  "login": "Login",
+  "register": "Register",
+  "The next generation social network & community! Connect with your friends and play with our quests and badges gamification system!": "The next generation social network & community! Connect with your friends and play with our quests and badges gamification system!",
+  "account login": "Account Login",
+  "forget password!": "Forget Password!",
+  "login to your account" : "Login To Your Account",
+  "login with your social account" : "Login With Your Social Account",
+  "or" : "Or",
+  "userName or email" : "UserName Or Email",
+  "email" : "Email",
+  "userName" : "UserName",
+  "password" : "Password",
+  "repeat password" : "Repeat Password",
+  "remember me" : "Remember Me",
+  "create your account" : "Create Your Account",
+  "send me news and updates via email" : "Send Me News And Updates Via Email",
+  "register now!" :"Register Now!",
+  "you will receive a confirmation email in your inbox with a link to activate your account" : "You Will Receive a Confirmation Email In Your Inbox With a Link To Activate Your Account",
+  "if you have any problems" : "If You Have Any Problems",
+  "contact us": "contact us"
+
+
 }

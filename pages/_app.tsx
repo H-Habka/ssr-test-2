@@ -28,17 +28,17 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 
   const getLayout = Component.getLayout ?? ((page) => page);
 
-  return getLayout(
-    <>
+  return (
+    <div className={`${darkMode ? "dark" : ""}`}>
       {isReady ? (
-        <div className={`${darkMode ? "dark" : ""}`}>
+        getLayout(
           <I18nextProvider i18n={i18nInit}>
             <Component {...pageProps} />
           </I18nextProvider>
-        </div>
+        )
       ) : (
         <p>loading ...</p>
       )}
-    </>
+    </div>
   );
 }
