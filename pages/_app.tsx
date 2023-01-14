@@ -32,18 +32,20 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page);
 
   return (
-    <div className={`${darkMode ? "dark" : ""}`}>
-      {isReady ? (
-        getLayout(
-          <QueryClientProvider client={queryClient}>
-            <I18nextProvider i18n={i18nInit}>
-              <Component {...pageProps} />
-            </I18nextProvider>
-          </QueryClientProvider>
-        )
-      ) : (
-        <p>loading ...</p>
-      )}
+    <div className={`${darkMode ? "dark" : ""} `}>
+      <div className="selection:text-white selection:bg-lightTwo selection:dark:text-white selection:dark:bg-darkThree">
+        {isReady ? (
+          getLayout(
+            <QueryClientProvider client={queryClient}>
+              <I18nextProvider i18n={i18nInit}>
+                <Component {...pageProps} />
+              </I18nextProvider>
+            </QueryClientProvider>
+          )
+        ) : (
+          <p>loading ...</p>
+        )}
+      </div>
     </div>
   );
 }

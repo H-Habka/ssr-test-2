@@ -16,9 +16,9 @@ export default function Home() {
       <main className="text-3xl 380:text-2xl dark:bg-black dark:text-white">
         <div
           onClick={() => router.push("/auth/login")}
-          className="text-2xl text-center mt-4 cursor-pointer"
+          className="text-2xl text-center mt-4 cursor-pointer "
         >
-          login
+          login now
         </div>
       </main>
     </>
