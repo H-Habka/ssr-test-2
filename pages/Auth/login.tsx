@@ -7,14 +7,28 @@ import type { NextPageWithLayout } from "../_app";
 import { ImFacebook, ImTwitter, ImYoutube } from "react-icons/im";
 import { AiFillInstagram } from "react-icons/ai";
 import { useMediaQuery } from "react-responsive";
+import { api } from "../../api";
+import { useMutation } from "react-query";
+import { useForm } from "react-hook-form";
 
 const Login: NextPageWithLayout = () => {
   const sm = useMediaQuery({
     query: "(min-width: 640px)",
   });
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
   const { t, i18n } = useTranslation();
+  const onSubmit = (data: any) => {
+    console.log(data);
+  };
   return (
-    <div className="relative flex flex-col items-center bg-white dark:bg-darkOne rounded-xl w-[90vw] min-w-[300px] max-w-[470px] 380:px-8 420:px-12 380:py-8 420:py-14 mt-6 py-6 px-4 mb-6 1230:mb-0 1230:mt-0 1230:h-screen 1230:justify-center 1230:rounded-none">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="relative flex flex-col items-center bg-white dark:bg-darkOne rounded-xl w-[90vw] min-w-[300px] max-w-[470px] 380:px-8 420:px-12 380:py-8 420:py-14 mt-6 py-6 px-4 mb-6 1230:mb-0 1230:mt-0 1230:h-screen 1230:justify-center 1230:rounded-none"
+    >
       <div
         className={`absolute hidden 1230:block top-0 -translate-y-1/2 start-0  ${
           i18n.language.startsWith("en")
@@ -30,13 +44,13 @@ const Login: NextPageWithLayout = () => {
       <CustomInputField
         type="text"
         label="userName or email"
-        register={{}}
+        register={register("email")}
         className="my-4"
       />
       <CustomInputField
         type="password"
         label="password"
-        register={{}}
+        register={register("password")}
         className="my-4"
       />
       <div className="flex justify-between  w-full mt-4">
@@ -85,7 +99,7 @@ const Login: NextPageWithLayout = () => {
           <ImYoutube className="w-4 h-4 text-white" />
         </div>
       </div>
-    </div>
+    </form>
   );
 };
 
