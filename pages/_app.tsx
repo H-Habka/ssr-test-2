@@ -6,6 +6,8 @@ import { useGlobalStore } from "../store/globalStore";
 import type { ReactElement, ReactNode } from "react";
 import type { NextPage } from "next";
 import type { AppProps } from "next/app";
+import { QueryClient } from "react-query";
+import { QueryClientProvider } from "react-query";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -15,6 +17,7 @@ type AppPropsWithLayout = AppProps & {
 };
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
+  const queryClient = new QueryClient();
   const { i18n } = useTranslation();
   const [isReady, setIsReady] = useState<boolean>(false);
   const darkMode = useGlobalStore((state) => state.darkMode);
@@ -32,9 +35,11 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
     <div className={`${darkMode ? "dark" : ""}`}>
       {isReady ? (
         getLayout(
-          <I18nextProvider i18n={i18nInit}>
-            <Component {...pageProps} />
-          </I18nextProvider>
+          <QueryClientProvider client={queryClient}>
+            <I18nextProvider i18n={i18nInit}>
+              <Component {...pageProps} />
+            </I18nextProvider>
+          </QueryClientProvider>
         )
       ) : (
         <p>loading ...</p>
