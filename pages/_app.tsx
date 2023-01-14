@@ -16,7 +16,7 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const queryClient = new QueryClient();
   const { i18n } = useTranslation();
   const [isReady, setIsReady] = useState<boolean>(false);
@@ -29,19 +29,19 @@ export default function App({ Component, pageProps }: AppProps) {
       : "rtl";
   }, []);
 
-  // const getLayout = Component.getLayout ?? ((page) => page);
+  const getLayout = Component.getLayout ?? ((page) => page);
 
   return (
     <div className={`${darkMode ? "dark" : ""}`}>
       {isReady ? (
-        // getLayout(
-        <QueryClientProvider client={queryClient}>
-          <I18nextProvider i18n={i18nInit}>
-            <Component {...pageProps} />
-          </I18nextProvider>
-        </QueryClientProvider>
+        getLayout(
+          <QueryClientProvider client={queryClient}>
+            <I18nextProvider i18n={i18nInit}>
+              <Component {...pageProps} />
+            </I18nextProvider>
+          </QueryClientProvider>
+        )
       ) : (
-        // )
         <p>loading ...</p>
       )}
     </div>
