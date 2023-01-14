@@ -8,7 +8,7 @@ import { ImFacebook, ImTwitter, ImYoutube } from "react-icons/im";
 import { AiFillInstagram } from "react-icons/ai";
 import { useMediaQuery } from "react-responsive";
 
-const login: NextPageWithLayout = () => {
+const Login: NextPageWithLayout = () => {
   const sm = useMediaQuery({
     query: "(min-width: 640px)",
   });
@@ -89,8 +89,8 @@ const login: NextPageWithLayout = () => {
   );
 };
 
-export default login;
+export default Login;
 
-login.getLayout = function getLayout(page: ReactElement) {
+Login.getLayout = function getLayout(page: ReactElement) {
   return <AuthLayout>{page}</AuthLayout>;
 };

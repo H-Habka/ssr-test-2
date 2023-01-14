@@ -6,7 +6,7 @@ import AuthLayout from "../../layouts/AuthLayout";
 import type { NextPageWithLayout } from "../_app";
 import { useMediaQuery } from "react-responsive";
 
-const signup: NextPageWithLayout = () => {
+const Signup: NextPageWithLayout = () => {
   const sm = useMediaQuery({
     query: "(min-width: 640px)",
   });
@@ -70,8 +70,8 @@ const signup: NextPageWithLayout = () => {
   );
 };
 
-export default signup;
+export default Signup;
 
-signup.getLayout = function getLayout(page: ReactElement) {
+Signup.getLayout = function getLayout(page: ReactElement) {
   return <AuthLayout>{page}</AuthLayout>;
 };
