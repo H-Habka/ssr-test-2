@@ -64,7 +64,7 @@ const Signup: NextPageWithLayout = () => {
       <div className="flex justify-start  w-full">
         <CustomCheckBox label="send me news and updates via email" />
       </div>
-      <button className="w-full flex items-center justify-center p-4 bg-lightTwo dark:bg-darkThree text-white font-semibold mt-4 rounded-xl hover:bg-opacity-80 active:bg-opacity-95 transition-all duration-300">
+      <button className="shadow-10px shadow-lightTwo dark:shadow-darkThree w-full flex items-center justify-center p-4 bg-lightTwo dark:bg-darkThree text-white font-semibold mt-4 rounded-xl hover:bg-opacity-80 active:bg-opacity-95 transition-all duration-300">
         <p>{isLoading ? t("loading ...") : t("register now!")}</p>
       </button>
       <div className="font-medium mt-8 w-full text-start text-sm dark:text-white">

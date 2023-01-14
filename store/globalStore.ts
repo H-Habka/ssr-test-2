@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { globalState } from "../constants";
 
 export const useGlobalStore = create<globalState>((set) => ({
-  darkMode: false,
+  darkMode: true,
   lang: "en",
   setLang: (lang) =>
     set((state) => ({

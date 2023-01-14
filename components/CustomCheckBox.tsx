@@ -15,7 +15,7 @@ const CustomCheckBox: React.FC<Props> = ({ label }) => {
     > 
       <div
         className={`w-6 h-6 rounded-[6px] me-2 border dark:border-darkTwo relative transition-all duration-300 ${
-          checked && "bg-lightTwo dark:bg-darkThree"
+          checked && "bg-lightTwo dark:bg-darkThree shadow-5px shadow-lightTwo dark:shadow-darkThree"
         }`}
       >
         <div

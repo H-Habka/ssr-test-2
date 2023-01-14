@@ -32,6 +32,10 @@ module.exports = {
         darkFour: "#4FF461",
         darkFive: "#7750F8",
       },
+      boxShadow: {
+        '10px': "0px 0px 10px 0px var(--tw-shadow-color)",
+        '5px': "0px 0px 5px 0px var(--tw-shadow-color)",
+      },
     },
   },
   plugins: [require("tailwind-scrollbar"), require("tailwindcss-rtl")],

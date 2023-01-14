@@ -59,12 +59,12 @@ const Login: NextPageWithLayout = () => {
           {t("forget password!")}
         </p>
       </div>
-      <button className="w-full flex items-center justify-center p-4 bg-lightOne dark:bg-darkFive text-white font-semibold mt-4 rounded-xl hover:bg-opacity-80 active:bg-opacity-95 transition-all duration-300 shadow-sm shadow-darkFive">
+      <button className="1230:mt-8 w-full flex items-center justify-center p-4 bg-lightOne dark:bg-darkFive dark:shadow-darkFive text-white font-semibold mt-4 rounded-xl hover:bg-opacity-80 active:bg-opacity-95 transition-all duration-300  shadow-lightOne shadow-10px">
         {t("login to your account")}
       </button>
-      <div className="mt-6 border-b relative w-full">
+      <div className="mt-6 1230:mt-12 border-b relative w-full">
         <p
-          className={`text-center font-black text-2xl 640:text-sm 640:font-medium whitespace-nowrap bg-white dark:bg-darkOne dark:text-white absolute bottom-0 translate-y-1/2 start-1/2 w-fit px-2  ${
+          className={`text-center font-black text-2xl 640:text-sm 640:font-medium whitespace-nowrap bg-white dark:bg-darkOne dark:text-white absolute bottom-0 translate-y-1/2 start-1/2 w-fit px-2   ${
             i18n.language.startsWith("en")
               ? "-translate-x-1/2"
               : "translate-x-1/2"
