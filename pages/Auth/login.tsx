@@ -1,13 +1,13 @@
 import React, { ReactElement } from "react";
 import { useTranslation } from "react-i18next";
-import CustomCheckBox from "../../components/CustomCheckBox";
-import CustomInputField from "../../components/CustomInputField";
-import AuthLayout from "../../layouts/AuthLayout";
-import type { NextPageWithLayout } from "../_app";
+import CustomCheckBox from "@components/common/CustomCheckBox";
+import CustomInputField from "@components/common/CustomInputField";
+import AuthLayout from "@layouts/AuthLayout";
+import type { NextPageWithLayout } from "@pages/_app";
 import { ImFacebook, ImTwitter, ImYoutube } from "react-icons/im";
 import { AiFillInstagram } from "react-icons/ai";
 import { useMediaQuery } from "react-responsive";
-import { api } from "../../api";
+import { api } from "@api/index";
 import { useMutation } from "react-query";
 import { useForm } from "react-hook-form";
 

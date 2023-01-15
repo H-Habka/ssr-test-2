@@ -8,6 +8,8 @@ import type { NextPage } from "next";
 import type { AppProps } from "next/app";
 import { QueryClient } from "react-query";
 import { QueryClientProvider } from "react-query";
+import Head from "next/head";
+import SplashScreen from "@components/common/SplashScreen";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -21,7 +23,11 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const { i18n } = useTranslation();
   const [isReady, setIsReady] = useState<boolean>(false);
   const darkMode = useGlobalStore((state) => state.darkMode);
+  const setDarkMode = useGlobalStore((state) => state.setDarkMode);
   useEffect(() => {
+    // if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    //   setDarkMode(true);
+    // }
     setIsReady(true);
     document.documentElement.lang = i18n.language;
     document.documentElement.dir = i18n.language.startsWith("en")
@@ -33,6 +39,22 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <div className={`${darkMode ? "dark" : ""} `}>
+      <Head>
+        <link
+          rel="icon"
+          href="/logo-dark.ico"
+          media="(prefers-color-scheme: light)"
+          type="image/png"
+        />
+        <link
+          rel="icon"
+          href="/logo-white.ico"
+          media="(prefers-color-scheme: dark)"
+          type="image/png"
+          sizes="256x256"
+        />
+        <title>Vikinger</title>
+      </Head>
       <div className="selection:text-white selection:bg-lightTwo selection:dark:text-white selection:dark:bg-darkThree">
         {isReady ? (
           getLayout(
@@ -43,7 +65,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
             </QueryClientProvider>
           )
         ) : (
-          <p>loading ...</p>
+          <SplashScreen />
         )}
       </div>
     </div>

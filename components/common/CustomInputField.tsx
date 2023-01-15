@@ -24,7 +24,7 @@ const CustomInputField: React.FC<Props> = ({
         onChange={(e) => {
           setHasValue(e.target.value ? true : false);
         }}
-        className="outline-none rounded-xl border border-gray-300 dark:border-darkTwo p-4 w-full font-semibold text-gray-500 focus-within:border-lightOne dark:focus-within:border-darkFive  dark:bg-darkOne"
+        className="outline-none rounded-xl border border-gray-300 dark:border-darkTwo p-4 w-full font-semibold dark:text-gray-300 text-gray-600 focus-within:border-lightOne dark:focus-within:border-darkFive  dark:!bg-darkOne"
       />
       <p
         className={`bg-white dark:bg-darkOne w-fit px-1 transition-all duration-300 absolute  -translate-y-1/2 font-semibold text-gray-400 group-focus-within:top-0 group-focus-within:start-3 group-focus-within:text-sm pointer-events-none  ${
