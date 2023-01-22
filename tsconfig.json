@@ -19,7 +19,10 @@
       "@components/*": ["components/*"],
       "@layouts/*": ["layouts/*"],
       "@pages/*": ["pages/*"],
-      "@api/*": ["api/*"]
+      "@api/*": ["api/*"],
+      "@public/*": ["public/*"],
+      "@constants/*": ["constants/*"],
+      "@store/*": ["store/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

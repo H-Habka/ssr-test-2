@@ -10,6 +10,11 @@ import { QueryClient } from "react-query";
 import { QueryClientProvider } from "react-query";
 import Head from "next/head";
 import SplashScreen from "@components/common/SplashScreen";
+import { useRouter } from "next/router";
+import { useUserStore } from "store/userStore";
+import { Toaster } from "react-hot-toast";
+import ErrorHandler from "@components/common/ErrorHandler";
+
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -24,21 +29,34 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const [isReady, setIsReady] = useState<boolean>(false);
   const darkMode = useGlobalStore((state) => state.darkMode);
   const setDarkMode = useGlobalStore((state) => state.setDarkMode);
+  const router = useRouter();
+  const user = useUserStore((state) => state.user);
+  
   useEffect(() => {
     // if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
     //   setDarkMode(true);
     // }
-    setIsReady(true);
+    // setIsReady(true);
     document.documentElement.lang = i18n.language;
     document.documentElement.dir = i18n.language.startsWith("en")
       ? "ltr"
       : "rtl";
   }, []);
 
+  useEffect(() => {
+    if (!user) {
+      router.push("/auth/signup");
+      setIsReady(true);
+    } else {
+      router.push("/social/newsfeed");
+      setIsReady(true);
+    }
+  }, [user]);
+
   const getLayout = Component.getLayout ?? ((page) => page);
 
   return (
-    <div className={`${darkMode ? "dark" : ""} `}>
+    <div className={`${darkMode ? "dark" : ""}`}>
       <Head>
         <link
           rel="icon"
@@ -56,6 +74,8 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         <title>Vikinger</title>
       </Head>
       <div className="selection:text-white selection:bg-lightTwo selection:dark:text-white selection:dark:bg-darkThree">
+        <SplashScreen className={` ${isReady ? "opacity-0" : "opacity-100"}`} />
+        <ErrorHandler />
         {isReady ? (
           getLayout(
             <QueryClientProvider client={queryClient}>

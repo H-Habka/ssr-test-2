@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
   --one-light: #615dfa;
   --two-light: #5d71fb;
@@ -27,22 +26,20 @@
   font-family: Rajdhani, sans-serif;
 }
 
-
 .dark input:-webkit-autofill,
-.dark input:-webkit-autofill:hover, 
-.dark input:-webkit-autofill:focus, 
-.dark input:-webkit-autofill:active{
-    -webkit-box-shadow: 0 0 0 30px #1D2333 inset !important;
-    -webkit-text-fill-color: white !important;
+.dark input:-webkit-autofill:hover,
+.dark input:-webkit-autofill:focus,
+.dark input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #1d2333 inset !important;
+  -webkit-text-fill-color: white !important;
 }
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active{
-    -webkit-box-shadow: 0 0 0 30px white inset !important;
-    -webkit-text-fill-color: black !important;
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  -webkit-text-fill-color: black !important;
 }
-
 
 .dark .container {
   background-color: black;
@@ -139,3 +136,40 @@ input:-webkit-autofill:active{
     transform: scaleY(1);
   }
 }
+
+/* ::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+} */
+
+.scrollbar-custom-thin::-webkit-scrollbar {
+  width: 4px;
+}
+.scrollbar-custom-thin::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.scrollbar-custom-thin:hover::-webkit-scrollbar-track {
+  background-color: #23232322;
+}
+.scrollbar-custom-thin::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 4px;
+}
+.scrollbar-custom-thin:hover::-webkit-scrollbar-thumb {
+  background-color: #23d2e2aa;
+}
+.dark .scrollbar-custom-thin::-webkit-scrollbar-thumb {
+  background-color: #4ff461aa;
+}
+

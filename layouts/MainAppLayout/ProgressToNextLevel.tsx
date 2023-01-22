@@ -1,9 +1,10 @@
 import { useTranslation } from "react-i18next";
 interface Props {
   className?: string;
-  rest: string | number;
 }
-const ProgressToNextLevel: React.FC<Props> = ({ className = "", rest }) => {
+
+const rest = 40
+const ProgressToNextLevel: React.FC<Props> = ({ className = "" }) => {
   const { t } = useTranslation();
   return (
     <div className={`flex flex-col w-[120px] p-2 ${className}`}>

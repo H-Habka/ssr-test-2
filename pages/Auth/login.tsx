@@ -10,20 +10,41 @@ import { useMediaQuery } from "react-responsive";
 import { api } from "@api/index";
 import { useMutation } from "react-query";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/router";
+import { useUserStore } from "@store/userStore";
+import { useGlobalStore } from "@store/globalStore";
+import { toast } from "react-hot-toast";
 
 const Login: NextPageWithLayout = () => {
   const sm = useMediaQuery({
     query: "(min-width: 640px)",
   });
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-  } = useForm();
+  const { register, handleSubmit } = useForm();
   const { t, i18n } = useTranslation();
+  const { mutate, isLoading, error, isSuccess, data } = useMutation(
+    api.auth.login
+  );
+  const router = useRouter();
+  const setUser = useUserStore((state) => state.setUser);
+  const setError = useGlobalStore((state) => state.setError);
   const onSubmit = (data: any) => {
-    console.log(data);
+    mutate(data);
   };
+
+  if (isSuccess) {
+    setUser(data?.data?.data);
+    router.push("/social/newsfeed");
+  }
+
+  let err: any = error;
+  const validationErrors = err?.response?.data?.errors;
+  const globalError = err?.response?.data?.message;
+
+  if (globalError) {
+    setError(globalError);
+  }
+
+  // console.log(validationErrors);
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -44,14 +65,16 @@ const Login: NextPageWithLayout = () => {
       <CustomInputField
         type="text"
         label="userName or email"
-        register={register("email")}
+        register={register("emailOrUsername")}
         className="my-4"
+        error={validationErrors?.emailOrUsername}
       />
       <CustomInputField
         type="password"
         label="password"
         register={register("password")}
         className="my-4"
+        error={validationErrors?.password}
       />
       <div className="flex justify-between  w-full mt-4">
         <CustomCheckBox label="remember me" />
@@ -59,8 +82,11 @@ const Login: NextPageWithLayout = () => {
           {t("forget password!")}
         </p>
       </div>
-      <button className="1230:mt-8 w-full flex items-center justify-center p-4 bg-lightOne dark:bg-darkFive dark:shadow-darkFive text-white font-semibold mt-4 rounded-xl hover:bg-opacity-80 active:bg-opacity-95 transition-all duration-300  shadow-lightOne shadow-10px">
-        {t("login to your account")}
+      <button
+        disabled={isLoading}
+        className="1230:mt-8 w-full flex items-center justify-center p-4 bg-lightOne dark:bg-darkFive dark:shadow-darkFive text-white font-semibold mt-4 rounded-xl hover:bg-opacity-80 active:bg-opacity-95 transition-all duration-300  shadow-lightOne shadow-10px disabled:shadow-none disabled:brightness-75"
+      >
+        <p>{isLoading ? `${t("loading")}...` : t("login to your account")}</p>
       </button>
       <div className="mt-6 1230:mt-12 border-b relative w-full">
         <p

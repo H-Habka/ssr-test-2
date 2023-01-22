@@ -29,16 +29,27 @@ module.exports = {
       colors: {
         lightOne: "#615DFA",
         lightTwo: "#23D2E2",
+        lightThree: "#fcfcfd",
+        lightFour: "#f8f8fb",
+        lightIconFillColor: "#8b88ff",
         darkOne: "#1D2333",
         darkTwo: "#3F485F",
         darkThree: "#40D04F",
         darkFour: "#4FF461",
         darkFive: "#7750F8",
+        darkSix: "#21283b",
+        darkSeven: "#293249",
+        darkIconFillColor: "#9b7dff",
       },
       boxShadow: {
         '10px': "0px 0px 10px 0px var(--tw-shadow-color)",
         '5px': "0px 0px 5px 0px var(--tw-shadow-color)",
+        iconButton : "0px 0px 30px -15px var(--tw-shadow-color)",
+        iconButtonActive : "4px 4px 10px -4px var(--tw-shadow-color)"
       },
+      // transitionProperty : {
+
+      // }
     },
   },
   plugins: [require("tailwind-scrollbar"), require("tailwindcss-rtl")],

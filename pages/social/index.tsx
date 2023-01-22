@@ -6,8 +6,8 @@ import Loader from "@components/common/Loader";
 const Social: NextPageWithLayout = () => {
   return (
     <div>
-      <div className="w-[60px] h-10">
-        <Loader />
+      <div className="w-[60px] h-[calc(100vh-80px)] cursor-pointer">
+        social Page
       </div>
     </div>
   );

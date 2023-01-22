@@ -2,6 +2,7 @@ import React, { ReactElement } from "react";
 import { useGlobalStore } from "../../store/globalStore";
 import { useTranslation } from "react-i18next";
 import Switcher from "./Switcher";
+import Logo from '@public/icons/logo.svg'
 
 const AuthLayout: React.FC<{ children: any }> = ({ children }) => {
   const darkMode = useGlobalStore((state) => state.darkMode);
@@ -18,7 +19,7 @@ const AuthLayout: React.FC<{ children: any }> = ({ children }) => {
       <div className="flex flex-col items-center">
         <div className="text-white flex flex-col justify-center items-center mt-24 1230:mt-0">
           <div className="text-center mb-8">
-            <img src="/images/common/logo.png" alt="logo" className="w-12"/>
+            <Logo className="w-12 fill-white"/>
           </div>
           <p className="text-center font-medium text-2xl 480:text-[2.5rem] leading-[0.25] mt-3 mb-2">
             {t("welcom to").toUpperCase()}

@@ -10,7 +10,7 @@ const MainAppLayout: React.FC<{ children: any }> = ({ children }) => {
     query: "(min-width:680px)",
   });
   return (
-    <div className="bg-[#DEDEEA]">
+    <div className="bg-lightFour dark:bg-[#161b28]">
       <TopBar />
       <div className="680:px-20">
         {is680 && <NavigationSidebar />}

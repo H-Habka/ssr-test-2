@@ -7,18 +7,25 @@ import type { NextPageWithLayout } from "@pages/_app";
 import { useMutation } from "react-query";
 import { api } from "@api/index";
 import { useForm } from "react-hook-form";
+import { useUserStore } from "store/userStore";
 
 const Signup: NextPageWithLayout = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-  const { mutate, isLoading, error } = useMutation(api.auth.register);
+  const { register, handleSubmit } = useForm();
+  const { mutate, isLoading, error, data, isSuccess } = useMutation(
+    api.auth.register
+  );
   const { t, i18n } = useTranslation();
   const onSubmit = (data: any) => {
     mutate(data);
   };
+  const setUser = useUserStore((state) => state.setUser);
+
+  let validationErrors: any = error;
+  validationErrors = validationErrors?.response?.data?.errors;
+
+  if (isSuccess) {
+    setUser(data?.data?.data);
+  }
 
   return (
     <form
@@ -42,30 +49,37 @@ const Signup: NextPageWithLayout = () => {
         label="email"
         register={{ ...register("email") }}
         className="my-3"
+        error={validationErrors?.email}
       />
       <CustomInputField
         type="text"
         label="userName"
         register={{ ...register("userName") }}
         className="my-3"
+        error={validationErrors?.userName}
       />
       <CustomInputField
         type="password"
         label="password"
         register={{ ...register("password") }}
         className="my-3"
+        error={validationErrors?.password}
       />
       <CustomInputField
         type="password"
         label="repeat password"
         register={{ ...register("confirmPassword") }}
         className="my-3"
+        error={validationErrors?.confirmPassword}
       />
       <div className="flex justify-start  w-full">
         <CustomCheckBox label="send me news and updates via email" />
       </div>
-      <button className="shadow-10px shadow-lightTwo dark:shadow-darkThree w-full flex items-center justify-center p-4 bg-lightTwo dark:bg-darkThree text-white font-semibold mt-4 rounded-xl hover:bg-opacity-80 active:bg-opacity-95 transition-all duration-300">
-        <p>{isLoading ? t("loading ...") : t("register now!")}</p>
+      <button
+        disabled={isLoading}
+        className="shadow-10px shadow-lightTwo dark:shadow-darkThree w-full flex items-center justify-center p-4 bg-lightTwo dark:bg-darkThree text-white font-semibold mt-4 rounded-xl hover:bg-opacity-80 active:bg-opacity-95 transition-all duration-300 disabled:shadow-none disabled:brightness-75"
+      >
+        <p>{isLoading ? `${t("loading")}...` : t("register now!")}</p>
       </button>
       <div className="font-medium mt-8 w-full text-start text-sm dark:text-white">
         {t(
