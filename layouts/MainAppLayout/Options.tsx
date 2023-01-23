@@ -35,7 +35,7 @@ const IconWithBadge: React.FC<IconWithBadgeProps> = ({
 }) => {
   return (
     <div>
-      <Icon className="transition-all duration-300 w-[20px] h-[20px] fill-lightIconFillColor dark:fill-darkIconFillColor hover:fill-white cursor-pointer" />
+      <Icon className="transition-all duration-300 w-[20px] h-[20px] fill-lightIconFillColor dark:fill-darkIconFillColor hover:fill-white hover:dark:fill-white cursor-pointer" />
     </div>
   );
 };
@@ -51,7 +51,7 @@ const Options: React.FC<Props> = ({
     >
       <ProgressToNextLevel className={ProgressClassName} />
       <p className="w-px h-full border-s border-gray-300 border-opacity-60 hidden 480:block" />
-      <ShoppingBadge className="transition-all duration-300 w-[20px] h-[20px] fill-lightIconFillColor dark:fill-darkIconFillColor hover:fill-white cursor-pointer" />
+      <ShoppingBadge className="transition-all duration-300 w-[20px] h-[20px] fill-lightIconFillColor dark:fill-darkIconFillColor hover:fill-white hover:dark:fill-white cursor-pointer" />
       <IconWithBadge
         Icon={Smile}
         navigate={navigate}

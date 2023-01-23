@@ -15,7 +15,7 @@ const ProgressToNextLevel: React.FC<Props> = ({ className = "" }) => {
         </p>
       </div>
       <div className="w-full h-1 bg-[#23232388] rounded-2xl">
-        <div className="rounded-2xl w-[60%] h-full bg-gradient-to-r from-lightTwo to-lightTwo via-lightTwo" />
+        <div className="rounded-2xl w-[60%] h-full bg-gradient-to-r from-lightTwo to-lightTwo via-lightTwo dark:from-darkThree dark:to-darkFour dark:via-darkThree" />
       </div>
     </div>
   );

@@ -156,20 +156,23 @@ input:-webkit-autofill:active {
 .scrollbar-custom-thin::-webkit-scrollbar {
   width: 4px;
 }
-.scrollbar-custom-thin::-webkit-scrollbar-track {
+.scrollbar-custom-thin::-webkit-scrollbar-track, .dark .scrollbar-custom-thin::-webkit-scrollbar-track {
   background-color: transparent;
 }
 .scrollbar-custom-thin:hover::-webkit-scrollbar-track {
   background-color: #23232322;
 }
-.scrollbar-custom-thin::-webkit-scrollbar-thumb {
+.dark .scrollbar-custom-thin:hover::-webkit-scrollbar-track {
+  background-color: #EEEEEE33;
+}
+.scrollbar-custom-thin::-webkit-scrollbar-thumb, .dark .scrollbar-custom-thin::-webkit-scrollbar-thumb {
   background-color: transparent;
   border-radius: 4px;
 }
 .scrollbar-custom-thin:hover::-webkit-scrollbar-thumb {
   background-color: #23d2e2aa;
 }
-.dark .scrollbar-custom-thin::-webkit-scrollbar-thumb {
+.dark .scrollbar-custom-thin:hover::-webkit-scrollbar-thumb {
   background-color: #4ff461aa;
 }
 

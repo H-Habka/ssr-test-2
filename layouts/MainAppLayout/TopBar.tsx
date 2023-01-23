@@ -24,7 +24,7 @@ const TopBar = () => {
         <BiMenuAltLeft className="w-9 h-9 text-white block 680:hidden" />
         <ApplicationIcon
           onClick={() => setLeftBarStatus(!leftBarStatus)}
-          className="w-6 h-6 cursor-pointer transition-all duration-[200] hover:fill-white fill-lightIconFillColor dark:fill-darkIconFillColor 680:block hidden"
+          className="w-6 h-6 cursor-pointer transition-all duration-[200] hover:fill-white dark:hover:fill-white fill-lightIconFillColor dark:fill-darkIconFillColor 680:block hidden"
         />
       </div>
       <NavigationTabs containerClassName="hidden 1366:flex" />
