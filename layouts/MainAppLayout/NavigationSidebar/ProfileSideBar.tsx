@@ -68,7 +68,7 @@ const ProfileSideBar = () => {
             size="medium"
             imageSrc=""
             hasStatus={false}
-            widthWrapper={true}
+            withWrapper={true}
           />
         </div>
       </div>

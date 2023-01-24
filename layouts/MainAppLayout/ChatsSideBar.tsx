@@ -76,7 +76,7 @@ const ChatsSideBar = () => {
                   size="small"
                   imageSrc=""
                   hasStatus={true}
-                  widthWrapper={true}
+                  withWrapper={true}
                   colorClassName="bg-white dark:bg-darkOne group-hover:bg-gray-200 dark:group-hover:bg-darkTwo"
                 />
               </div>

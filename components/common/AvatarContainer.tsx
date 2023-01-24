@@ -14,7 +14,7 @@ interface finalResultProps {
   imageSrc: string;
   size: "small" | "large" | "medium";
   hasStatus: boolean;
-  widthWrapper?: boolean;
+  withWrapper?: boolean;
   statusType?: "online" | "offline" | "inactive";
   colorClassName?: string;
 }
@@ -308,7 +308,7 @@ const AvatarContainerWithWrapper: React.FC<finalResultProps> = ({
   size,
   imageSrc,
   hasStatus,
-  widthWrapper = false,
+  withWrapper = false,
   statusType = "online",
   colorClassName = "bg-white dark:bg-darkOne",
 }) => {
@@ -321,7 +321,7 @@ const AvatarContainerWithWrapper: React.FC<finalResultProps> = ({
     height = 200;
   }
   width = 0.866 * height;
-  if (widthWrapper) {
+  if (withWrapper) {
     return (
       <RelativeWrapper>
         <Wrapper height={height} colorClassName={colorClassName}>

@@ -40,13 +40,14 @@ module.exports = {
         darkSix: "#21283b",
         darkSeven: "#293249",
         darkIconFillColor: "#9b7dff",
+        redColor: "#fd434f",
       },
       boxShadow: {
-        '10px': "0px 0px 10px 0px var(--tw-shadow-color)",
-        '5px': "0px 0px 5px 0px var(--tw-shadow-color)",
-        '12-9px': "0px 0px 12px -9px var(--tw-shadow-color)",
-        iconButton : "0px 0px 30px -15px var(--tw-shadow-color)",
-        iconButtonActive : "4px 4px 10px -4px var(--tw-shadow-color)"
+        "10px": "0px 0px 10px 0px var(--tw-shadow-color)",
+        "5px": "0px 0px 5px 0px var(--tw-shadow-color)",
+        "12-9px": "0px 0px 12px -9px var(--tw-shadow-color)",
+        iconButton: "0px 0px 30px -15px var(--tw-shadow-color)",
+        iconButtonActive: "4px 4px 10px -4px var(--tw-shadow-color)",
       },
       // transitionProperty : {
 

@@ -28,7 +28,7 @@ const NavigationSidebar = () => {
             size="small"
             imageSrc=""
             hasStatus={true}
-            widthWrapper={true}
+            withWrapper={true}
             statusType="inactive"
           />
           {navigationSidebarIcons.slice(0, 8).map((item, idx) => (
