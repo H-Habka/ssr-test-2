@@ -10,15 +10,15 @@ import ForumsIcon from "@public/icons/forums.svg";
 import MarketplaceIcon from "@public/icons/marketplace.svg";
 import { IconType } from "react-icons";
 
-export const navigationSidebarIcons : NavItemProps[] = [
-  { href: "/social/newsfeed", title: "NewsFeed", Icon: NewsFeedIcon },
-  { href: "/social/overview", title: "Overview", Icon: OverviewIcon },
-  { href: "/social/groups", title: "Groups", Icon: GroupsIcon },
-  { href: "/social/members", title: "Members", Icon: MembersIcon },
-  { href: "/social/badges", title: "Badges", Icon: BadgesIcon },
-  { href: "/social/quests", title: "Quests", Icon: QuestsIcon },
-  { href: "/social/streams", title: "Strems", Icon: StreamsIcon },
-  { href: "/social/events", title: "Events", Icon: EventsIcon },
+export const navigationSidebarIcons: NavItemProps[] = [
+  { href: "/social/newsfeed", title: "newsfeed", Icon: NewsFeedIcon },
+  { href: "/social/overview", title: "overview", Icon: OverviewIcon },
+  { href: "/social/groups", title: "groups", Icon: GroupsIcon },
+  { href: "/social/members", title: "members", Icon: MembersIcon },
+  { href: "/social/badges", title: "badges", Icon: BadgesIcon },
+  { href: "/social/quests", title: "quests", Icon: QuestsIcon },
+  { href: "/social/streams", title: "streams", Icon: StreamsIcon },
+  { href: "/social/events", title: "events", Icon: EventsIcon },
   { href: "/social/forums", title: "forums", Icon: ForumsIcon },
   { href: "/social/marketplace", title: "marketplace", Icon: MarketplaceIcon },
 ];

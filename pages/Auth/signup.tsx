@@ -8,6 +8,7 @@ import { useMutation } from "react-query";
 import { api } from "@api/index";
 import { useForm } from "react-hook-form";
 import { useUserStore } from "store/userStore";
+import CustomButton from "@components/common/CustomButton";
 
 const Signup: NextPageWithLayout = () => {
   const { register, handleSubmit } = useForm();
@@ -75,12 +76,11 @@ const Signup: NextPageWithLayout = () => {
       <div className="flex justify-start  w-full">
         <CustomCheckBox label="send me news and updates via email" />
       </div>
-      <button
-        disabled={isLoading}
-        className="shadow-10px shadow-lightTwo dark:shadow-darkThree w-full flex items-center justify-center p-4 bg-lightTwo dark:bg-darkThree text-white font-semibold mt-4 rounded-xl hover:bg-opacity-80 active:bg-opacity-95 transition-all duration-300 disabled:shadow-none disabled:brightness-75"
-      >
-        <p>{isLoading ? `${t("loading")}...` : t("register now!")}</p>
-      </button>
+      <div className="mt-4 w-full">
+        <CustomButton variant="two" isLoading={isLoading}>
+          {isLoading ? `${t("loading")}...` : t("register now!")}
+        </CustomButton>
+      </div>
       <div className="font-medium mt-8 w-full text-start text-sm dark:text-white">
         {t(
           "you will receive a confirmation email in your inbox with a link to activate your account"

@@ -11,7 +11,7 @@ const ProgressToNextLevel: React.FC<Props> = ({ className = "" }) => {
       <div className="flex justify-between w-full text-white font-semibold text-xs mb-1">
         <p>{t("next").toUpperCase()}</p>
         <p>
-          {rest} {t("EXP").toUpperCase()}
+          {rest} {t("exp").toUpperCase()}
         </p>
       </div>
       <div className="w-full h-1 bg-[#23232388] rounded-2xl">

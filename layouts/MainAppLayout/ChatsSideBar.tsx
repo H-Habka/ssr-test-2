@@ -8,7 +8,7 @@ import { useState } from "react";
 
 interface MessageItemProps {
   name: string;
-  time: string;
+  time: `${number} ${"hrs" | "mins"}`;
   lastMessage: string;
 }
 
@@ -17,11 +17,14 @@ const MessageItem: React.FC<MessageItemProps> = ({
   time,
   lastMessage,
 }) => {
+  const { t } = useTranslation();
   return (
     <div className="w-full h-full pe-2 text-sm pt-2 ">
       <div className="flex justify-between">
         <p className="font-bold text-darkOne dark:text-white">{name}</p>
-        <p className=" font-semibold text-[11px] text-darkTwo dark:text-gray-300">{time}</p>
+        <p className=" font-semibold text-[11px] text-darkTwo dark:text-gray-300">
+          {time.split(" ")[0]} {t(time.split(" ")[1])}
+        </p>
       </div>
       <div className="text-ellipsis whitespace-nowrap w-[210px] overflow-hidden text-darkTwo dark:text-gray-300">
         {lastMessage}
@@ -33,7 +36,7 @@ const MessageItem: React.FC<MessageItemProps> = ({
 const ChatsSideBar = () => {
   const rightBarStatus = useGlobalStore((state) => state.rightBarStatus);
   const setRightBarStatus = useGlobalStore((state) => state.setRightBarStatus);
-  const { i18n } = useTranslation();
+  const { t,i18n } = useTranslation();
   const [userSelected, setUserSelected] = useState<boolean>(false);
   return (
     <div
@@ -85,7 +88,7 @@ const ChatsSideBar = () => {
               >
                 <MessageItem
                   name="Hossien Habke"
-                  time="5hrs"
+                  time="5 hrs"
                   lastMessage=" i am so broud of you i am so broud of you i am so broud of you i am so broud of you"
                 />
               </div>
@@ -100,7 +103,7 @@ const ChatsSideBar = () => {
         <div className="w-[236px] relative">
           <input
             className="outline-none border  border-gray-300 dark:border-gray-600 px-4 pe-10 py-[10px]  rounded-xl w-full placeholder:font-semibold dark:placeholder:text-gray-600 bg-white dark:bg-darkOne dark:text-white focus:border-lightOne dark:focus:border-darkFive"
-            placeholder="search messages..."
+            placeholder={`${t("search messages")} ...`}
           />
           <SearchIcon className="absolute top-1/2 -translate-y-1/2 end-4 fill-gray-400" />
         </div>
@@ -120,7 +123,7 @@ const ChatsSideBar = () => {
         <p
           className={`font-bold  ms-4 text-white transition-all duration-500 delay-500 whitespace-nowrap absolute top-1/2 -translate-y-1/2 start-16 `}
         >
-          Messages / Chat
+          {t("messages")} / {t("chat")}
         </p>
       </div>
     </div>

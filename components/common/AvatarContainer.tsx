@@ -289,7 +289,7 @@ const AvatarContainer: React.FC<Props> = ({
                           style={{ width: `100%`, height: `100%` }}
                           src="/images/profile.jpg"
                           alt="avatar"
-                          className="object-cover cursor-pointer pointer-events-auto"
+                          className="object-cover cursor-pointer"
                         />
                       </div>
                     </div>

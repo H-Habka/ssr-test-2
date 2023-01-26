@@ -5,10 +5,12 @@ import NavigationTabs from "./NavigationTabs";
 import Logo from "@public/icons/logo.svg";
 import ApplicationIcon from "@public/icons/applaction-menu.svg";
 import { useGlobalStore } from "@store/globalStore";
+import { useTranslation } from "react-i18next";
 
 const TopBar = () => {
   const leftBarStatus = useGlobalStore((state) => state.leftBarStatus);
   const setLeftBarStatus = useGlobalStore((state) => state.setLeftBarStatus);
+  const { t } = useTranslation();
   return (
     <div className="z-50 sticky top-0 flex  justify-between items-center ps-3 bg-lightOne dark:bg-darkFive h-[60px] gap-6 680:h-[80px] 680:p-4 680:ps-6">
       <div className="flex items-center justify-between gap-5 py-2 1366:grow">
@@ -32,7 +34,7 @@ const TopBar = () => {
         <input
           type="text"
           className="outline-none  py-2 pe-2 380:pe-4 w-full bg-transparent text-white font-semibold placeholder:text-gray-300 placeholder:opacity-50 placeholder:text-sm placeholder:font-normal"
-          placeholder="search here for people or groups"
+          placeholder={String(t("search here for people or groups"))}
         />
         <BiSearchAlt2 className="text-gray-300 opacity-50 w-8 h-8 " />
       </div>

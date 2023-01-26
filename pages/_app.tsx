@@ -15,7 +15,6 @@ import { useUserStore } from "store/userStore";
 import { Toaster } from "react-hot-toast";
 import ErrorHandler from "@components/common/ErrorHandler";
 
-
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
 };
@@ -31,7 +30,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const setDarkMode = useGlobalStore((state) => state.setDarkMode);
   const router = useRouter();
   const user = useUserStore((state) => state.user);
-  
+
   useEffect(() => {
     // if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
     //   setDarkMode(true);
@@ -43,15 +42,19 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
       : "rtl";
   }, []);
 
+  // useEffect(() => {
+  //   if (!user) {
+  //     router.push("/auth/signup");
+  //     setIsReady(true);
+  //   } else {
+  //     router.push("/social/newsfeed");
+  //     setIsReady(true);
+  //   }
+  // }, [user]);
+
   useEffect(() => {
-    if (!user) {
-      router.push("/auth/signup");
-      setIsReady(true);
-    } else {
-      router.push("/social/newsfeed");
-      setIsReady(true);
-    }
-  }, [user]);
+    setIsReady(true);
+  }, []);
 
   const getLayout = Component.getLayout ?? ((page) => page);
 

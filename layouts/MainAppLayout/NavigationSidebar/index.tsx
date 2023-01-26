@@ -14,7 +14,7 @@ const NavigationSidebar = () => {
     <div className="w-20 h-[calc(100vh-80px)]  fixed start-0 bottom-0 z-[1]">
       <div className="relative w-full min-h-full ">
         <div
-          className={`absolute top-0 left-0 flex flex-col items-center gap-4 py-4 z-[1] w-full h-full transition-all duration-500 bg-white dark:bg-darkOne ease-in-out  ${
+          className={`absolute top-0 left-0 flex flex-col items-center gap-[14px] py-4 z-[1] w-full h-full transition-all duration-500 bg-white dark:bg-darkOne ease-in-out  ${
             leftBarStatus
               ? `delay-0 ${
                   i18n.language.startsWith("en")
@@ -24,13 +24,15 @@ const NavigationSidebar = () => {
               : "-translate-x-0 delay-700"
           }`}
         >
-          <AvatarContainer
-            size="small"
-            imageSrc=""
-            hasStatus={true}
-            withWrapper={true}
-            statusType="inactive"
-          />
+          <div className="">
+            <AvatarContainer
+              size="small"
+              imageSrc=""
+              hasStatus={true}
+              withWrapper={true}
+              statusType="inactive"
+            />
+          </div>
           {navigationSidebarIcons.slice(0, 8).map((item, idx) => (
             <IconButton key={idx} {...item} />
           ))}

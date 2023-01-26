@@ -3,8 +3,10 @@ import { NextPageWithLayout } from "@pages/_app";
 import MainAppLayout from "@layouts/MainAppLayout";
 import { ReactElement } from "react";
 import AvatarContainer from "@components/common/AvatarContainer";
+import { useTranslation } from "react-i18next";
 
 const Newsfeed: NextPageWithLayout = () => {
+  const { i18n } = useTranslation();
   return (
     <div className="px-6">
       <div
@@ -14,12 +16,18 @@ const Newsfeed: NextPageWithLayout = () => {
         }}
         className="flex relative justify-center items-center flex-col gap-4 bg-gray-100 dark:bg-darkOne h-[300px] mb-40 bg-cover mt-6 rounded-t-2xl"
       >
-        <div className="absolute bottom-0 start-1/2 translate-y-1/2 -translate-x-1/2 w-fit ">
+        <div
+          className={`absolute bottom-0 start-1/2 translate-y-1/2  w-fit ${
+            i18n.language.startsWith("en")
+              ? "-translate-x-1/2"
+              : "translate-x-1/2"
+          }`}
+        >
           <AvatarContainer
             size="large"
             imageSrc=""
             hasStatus={false}
-            widthWrapper={true}
+            withWrapper={true}
           />
         </div>
       </div>

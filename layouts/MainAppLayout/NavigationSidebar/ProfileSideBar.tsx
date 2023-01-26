@@ -36,24 +36,38 @@ const CountContainer: React.FC<{
 const NavItem: React.FC<NavItemProps> = ({ Icon, href, title }) => {
   const router = useRouter();
   const isActiveRoute = router?.pathname === href;
+  const {t} = useTranslation()
   return (
     <div
       onClick={() => router.push(href)}
-      className={`w-full flex items-center group shadow-gray-900  cursor-pointer py-3 transition-all duration-300 px-3 rounded-xl  ${isActiveRoute? "bg-lightTwo dark:bg-darkThree" : "hover:shadow-12-9px hover:dark:bg-darkTwo"}`}
+      className={`w-full flex items-center group shadow-gray-900  cursor-pointer py-3 transition-all duration-300 px-3 rounded-xl  ${
+        isActiveRoute
+          ? "bg-lightTwo dark:bg-darkThree"
+          : "hover:shadow-12-9px hover:dark:bg-darkTwo"
+      }`}
     >
       <Icon
-        className={` me-6   ${isActiveRoute ? "fill-white" : "fill-[#ADAFCA] group-hover:fill-lightTwo dark:group-hover:fill-darkFour" }`}
+        className={` me-6   ${
+          isActiveRoute
+            ? "fill-white"
+            : "fill-[#ADAFCA] group-hover:fill-lightTwo dark:group-hover:fill-darkFour"
+        }`}
       />
       <p
-        className={`font-bold transition-all duration-300  text-sm  ${isActiveRoute ? "text-white" : "text-gray-600 dark:text-gray-100 group-hover:ps-4" }`}
+        className={`font-bold transition-all duration-300  text-sm  ${
+          isActiveRoute
+            ? "text-white"
+            : "text-gray-600 dark:text-gray-100 group-hover:ps-4"
+        }`}
       >
-        {title}
+        {t(title)}
       </p>
     </div>
   );
 };
 
 const ProfileSideBar = () => {
+  const { i18n } = useTranslation();
   return (
     <div className="w-full flex flex-col items-center overflow-y-auto">
       <div
@@ -63,7 +77,13 @@ const ProfileSideBar = () => {
         }}
         className="w-full h-[75px] relative  bg-gray-100 dark:bg-darkOne bg-cover "
       >
-        <div className="absolute bottom-0 start-1/2 translate-y-3/4 -translate-x-1/2 w-fit ">
+        <div
+          className={`absolute bottom-0 start-1/2 translate-y-3/4  w-fit ${
+            i18n.language.startsWith("en")
+              ? "-translate-x-1/2"
+              : "translate-x-1/2"
+          }`}
+        >
           <AvatarContainerWithWrapper
             size="medium"
             imageSrc=""
