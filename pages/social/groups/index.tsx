@@ -1,14 +1,13 @@
-import React from "react";
-import { NextPageWithLayout } from "@pages/_app";
-import MainAppLayout from "@layouts/MainAppLayout";
-import { ReactElement } from "react";
+import React from "react"
+import MainAppLayout from "@layouts/MainAppLayout"
+import { ReactElement } from "react"
 
-const Groups: NextPageWithLayout = () => {
-  return <div>Groups</div>;
-};
+const Groups = () => {
+  return (
+    <MainAppLayout>
+      <div>Groups</div>
+    </MainAppLayout>
+  )
+}
 
-export default Groups;
-
-Groups.getLayout = function getLayout(page: ReactElement) {
-  return <MainAppLayout>{page}</MainAppLayout>;
-};
+export default Groups

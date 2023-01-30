@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next"
 import CustomCheckBox from "@components/common/CustomCheckBox"
 import CustomInputField from "@components/common/CustomInputField"
 import AuthLayout from "@layouts/AuthLayout"
-// import type { NextPageWithLayout } from "@pages/_app"
 import { useMutation } from "react-query"
 import { api } from "@api/index"
 import { useForm } from "react-hook-form"
@@ -87,7 +86,3 @@ const Signup = () => {
 }
 
 export default Signup
-
-// Signup.getLayout = function getLayout(page: ReactElement) {
-//   return <AuthLayout>{page}</AuthLayout>;
-// };

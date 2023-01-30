@@ -1,14 +1,13 @@
-import React from "react";
-import { NextPageWithLayout } from "@pages/_app";
-import MainAppLayout from "@layouts/MainAppLayout";
-import { ReactElement } from "react";
+import React from "react"
+import MainAppLayout from "@layouts/MainAppLayout"
+import { ReactElement } from "react"
 
-const Members: NextPageWithLayout = () => {
-  return <div>Members</div>;
-};
+const Members = () => {
+  return (
+    <MainAppLayout>
+      <div>Members</div>
+    </MainAppLayout>
+  )
+}
 
-export default Members;
-
-Members.getLayout = function getLayout(page: ReactElement) {
-  return <MainAppLayout>{page}</MainAppLayout>;
-};
+export default Members

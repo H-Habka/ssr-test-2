@@ -1,14 +1,13 @@
-import React from "react";
-import { NextPageWithLayout } from "@pages/_app";
-import MainAppLayout from "@layouts/MainAppLayout";
-import { ReactElement } from "react";
+import React from "react"
+import MainAppLayout from "@layouts/MainAppLayout"
+import { ReactElement } from "react"
 
-const Forums: NextPageWithLayout = () => {
-  return <div>Forums</div>;
-};
+const Forums = () => {
+  return (
+    <MainAppLayout>
+      <div>Forums</div>
+    </MainAppLayout>
+  )
+}
 
-export default Forums;
-
-Forums.getLayout = function getLayout(page: ReactElement) {
-  return <MainAppLayout>{page}</MainAppLayout>;
-};
+export default Forums

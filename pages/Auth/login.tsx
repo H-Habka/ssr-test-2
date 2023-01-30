@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next"
 import CustomCheckBox from "@components/common/CustomCheckBox"
 import CustomInputField from "@components/common/CustomInputField"
 import AuthLayout from "@layouts/AuthLayout"
-// import type { NextPageWithLayout } from "@pages/_app"
 import { ImFacebook, ImTwitter, ImYoutube } from "react-icons/im"
 import { AiFillInstagram } from "react-icons/ai"
 import { useMediaQuery } from "react-responsive"
@@ -107,7 +106,3 @@ const Login = () => {
 }
 
 export default Login
-
-// Login.getLayout = function getLayout(page: ReactElement) {
-//   return <AuthLayout>{page}</AuthLayout>
-// }

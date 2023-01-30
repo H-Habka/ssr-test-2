@@ -1,14 +1,13 @@
-import React from "react";
-import { NextPageWithLayout } from "@pages/_app";
-import MainAppLayout from "@layouts/MainAppLayout";
-import { ReactElement } from "react";
+import React from "react"
+import MainAppLayout from "@layouts/MainAppLayout"
+import { ReactElement } from "react"
 
-const Badges: NextPageWithLayout = () => {
-  return <div>Badges</div>;
-};
+const Badges = () => {
+  return (
+    <MainAppLayout>
+      <div>Badges</div>
+    </MainAppLayout>
+  )
+}
 
-export default Badges;
-
-Badges.getLayout = function getLayout(page: ReactElement) {
-  return <MainAppLayout>{page}</MainAppLayout>;
-};
+export default Badges

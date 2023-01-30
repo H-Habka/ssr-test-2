@@ -14,14 +14,14 @@ import { useRouter } from "next/router"
 import { useUserStore } from "store/userStore"
 import { Toaster } from "react-hot-toast"
 
-export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
-  getLayout?: (page: ReactElement) => ReactNode
-}
-type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout
-}
+// export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+//   getLayout?: (page: ReactElement) => ReactNode
+// }
+// type AppPropsWithLayout = AppProps & {
+//   Component: NextPageWithLayout
+// }
 
-export default function App({ Component, pageProps }: AppPropsWithLayout) {
+export default function App({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient()
   const { i18n } = useTranslation()
   const [isReady, setIsReady] = useState<boolean>(false)
@@ -53,13 +53,24 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
     setIsReady(true)
   }, [])
 
-  const getLayout = Component.getLayout ?? ((page) => page)
-  console.log({getLayout})
+  // const getLayout = Component.getLayout ?? ((page) => page)
+  // console.log({ getLayout })
   return (
     <div className={`${darkMode ? "dark" : ""}`}>
       <Head>
-        <link rel="icon" href="/logo-dark.ico" media="(prefers-color-scheme: light)" type="image/png" />
-        <link rel="icon" href="/logo-white.ico" media="(prefers-color-scheme: dark)" type="image/png" sizes="256x256" />
+        <link
+          rel="icon"
+          href="/logo-dark.ico"
+          media="(prefers-color-scheme: light)"
+          type="image/png"
+        />
+        <link
+          rel="icon"
+          href="/logo-white.ico"
+          media="(prefers-color-scheme: dark)"
+          type="image/png"
+          sizes="256x256"
+        />
         <title>Vikinger</title>
       </Head>
       <div className="selection:text-white selection:bg-lightTwo selection:dark:text-white selection:dark:bg-darkThree">

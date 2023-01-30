@@ -1,14 +1,13 @@
-import React from "react";
-import { NextPageWithLayout } from "@pages/_app";
-import MainAppLayout from "@layouts/MainAppLayout";
-import { ReactElement } from "react";
+import React from "react"
+import MainAppLayout from "@layouts/MainAppLayout"
+import { ReactElement } from "react"
 
-const Quests: NextPageWithLayout = () => {
-  return <div>Quests</div>;
-};
+const Quests = () => {
+  return (
+    <MainAppLayout>
+      <div>Quests</div>
+    </MainAppLayout>
+  )
+}
 
-export default Quests;
-
-Quests.getLayout = function getLayout(page: ReactElement) {
-  return <MainAppLayout>{page}</MainAppLayout>;
-};
+export default Quests

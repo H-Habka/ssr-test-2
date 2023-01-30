@@ -1,19 +1,16 @@
-import React from "react";
-import { NextPageWithLayout } from "@pages/_app";
-import MainAppLayout from "@layouts/MainAppLayout";
-import { ReactElement } from "react";
-import SettingsLayout from "@layouts/SettingLayout";
+import React from "react"
+import MainAppLayout from "@layouts/MainAppLayout"
+import { ReactElement } from "react"
+import SettingsLayout from "@layouts/SettingLayout"
 
-const ProfileInfo: NextPageWithLayout = () => {
-  return <div className="">test</div>;
-};
-
-export default ProfileInfo;
-
-ProfileInfo.getLayout = function getLayout(page: ReactElement) {
+const ProfileInfo = () => {
   return (
     <MainAppLayout>
-      <SettingsLayout>{page}</SettingsLayout>
+      <SettingsLayout>
+        <div className="">test</div>
+      </SettingsLayout>
     </MainAppLayout>
-  );
-};
+  )
+}
+
+export default ProfileInfo

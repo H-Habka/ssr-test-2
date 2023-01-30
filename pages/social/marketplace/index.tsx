@@ -1,14 +1,13 @@
-import React from "react";
-import { NextPageWithLayout } from "@pages/_app";
-import MainAppLayout from "@layouts/MainAppLayout";
-import { ReactElement } from "react";
+import React from "react"
+import MainAppLayout from "@layouts/MainAppLayout"
+import { ReactElement } from "react"
 
-const Marketplace: NextPageWithLayout = () => {
-  return <div>Marketplace</div>;
-};
+const Marketplace = () => {
+  return (
+    <MainAppLayout>
+      <div>Marketplace</div>
+    </MainAppLayout>
+  )
+}
 
-export default Marketplace;
-
-Marketplace.getLayout = function getLayout(page: ReactElement) {
-  return <MainAppLayout>{page}</MainAppLayout>;
-};
+export default Marketplace
