@@ -54,7 +54,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   }, [])
 
   const getLayout = Component.getLayout ?? ((page) => page)
-
+  console.log({getLayout})
   return (
     <div className={`${darkMode ? "dark" : ""}`}>
       <Head>
@@ -67,7 +67,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         <Toaster position="top-center" toastOptions={{ duration: 3000 }} />
         <QueryClientProvider client={queryClient}>
           <I18nextProvider i18n={i18nInit}>
-            {isReady ? getLayout(<Component {...pageProps} />) : <SplashScreen />}
+            {isReady ? <Component {...pageProps} /> : <SplashScreen />}
           </I18nextProvider>
         </QueryClientProvider>
       </div>
