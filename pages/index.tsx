@@ -14,19 +14,26 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="text-3xl 380:text-2xl dark:bg-black dark:text-white">
-        <Link href="/auth/login" className="text-2xl text-center mt-4 cursor-pointer ">
+        <Link href="auth/login" className="text-2xl text-center mt-4 cursor-pointer ">
           login right now
         </Link>
       </main>
       <div>
-        <Link href="/about">about</Link>
+        <Link href="about">about</Link>
       </div>
       <div>
-        <Link href="/login">login</Link>
+        <Link href="login">login</Link>
+      </div>
+	  <div>
+        <Link href="/login">/login</Link>
       </div>
       <div>
-        <Link href="/auth">auth</Link>
+        <Link href="auth">auth</Link>
       </div>
+      <div>
+        <Link href="/auth">/auth</Link>
+      </div>
+	  
     </>
   )
 }
