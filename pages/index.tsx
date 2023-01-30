@@ -1,10 +1,10 @@
-import { t } from "i18next";
-import Head from "next/head";
-import { useTranslation } from "react-i18next";
-import { useRouter } from "next/router";
+import { t } from "i18next"
+import Head from "next/head"
+import { useTranslation } from "react-i18next"
+import { useRouter } from "next/router"
 export default function Home() {
-  const router = useRouter();
-  const { t } = useTranslation();
+  const router = useRouter()
+  const { t } = useTranslation()
   return (
     <>
       <Head>
@@ -14,13 +14,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="text-3xl 380:text-2xl dark:bg-black dark:text-white">
-        <div
-          onClick={() => router.push("/auth/login")}
-          className="text-2xl text-center mt-4 cursor-pointer "
-        >
+        <div onClick={() => router.push("/auth/login")} className="text-2xl text-center mt-4 cursor-pointer ">
           login right now
         </div>
       </main>
     </>
-  );
+  )
 }
