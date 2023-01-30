@@ -15,8 +15,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="text-3xl 380:text-2xl dark:bg-black dark:text-white">
-        <Link href="/auth/login"  className="text-2xl text-center mt-4 cursor-pointer ">
-          login right now
+        <Link href="/about"  className="text-2xl text-center mt-4 cursor-pointer ">
+          aabout
         </Link>
       </main>
     </>
