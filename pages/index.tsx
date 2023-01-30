@@ -24,7 +24,7 @@ export default function Home() {
       <div>
         <Link href="login">login</Link>
       </div>
-	  <div>
+      <div>
         <Link href="/login">/login</Link>
       </div>
       <div>
@@ -33,7 +33,10 @@ export default function Home() {
       <div>
         <Link href="/auth">/auth</Link>
       </div>
-	  
+      <div>
+        <Link href="/social/newsfeed">link to newsfeed</Link>
+      </div>
+      <div onClick={() => router.push("/social/newsfeed")}>router to newsfeed</div>
     </>
   )
 }
