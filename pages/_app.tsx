@@ -15,13 +15,13 @@ import { useUserStore } from "store/userStore"
 import { Toaster } from "react-hot-toast"
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
-  getLayout?: (page: ReactElement) => ReactNode
+	getLayout?: (page: ReactElement) => ReactNode
 }
 type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout
+	Component: NextPageWithLayout
 }
 
-export default function App({ Component, pageProps }: any) {
+export default function App({ Component, pageProps }: AppPropsWithLayout) {
 	const queryClient = new QueryClient()
 	const { i18n } = useTranslation()
 	const [isReady, setIsReady] = useState<boolean>(false)
@@ -53,7 +53,7 @@ export default function App({ Component, pageProps }: any) {
 		setIsReady(true)
 	}, [])
 
-	// const getLayout = Component.getLayout ?? ((page) => page)
+	const getLayout = Component.getLayout ?? ((page) => page)
 
 	return (
 		<div className={`${darkMode ? "dark" : ""}`}>
@@ -65,17 +65,11 @@ export default function App({ Component, pageProps }: any) {
 			<div className="selection:text-white selection:bg-lightTwo selection:dark:text-white selection:dark:bg-darkThree">
 				<SplashScreen className={` ${isReady ? "opacity-0" : "opacity-100"}`} />
 				<Toaster position="top-center" toastOptions={{ duration: 3000 }} />
-				{isReady ? (
-					// getLayout(
-					<QueryClientProvider client={queryClient}>
-						<I18nextProvider i18n={i18nInit}>
-							<Component {...pageProps} />
-						</I18nextProvider>
-					</QueryClientProvider>
-				) : (
-					// )
-					<SplashScreen />
-				)}
+				<QueryClientProvider client={queryClient}>
+					<I18nextProvider i18n={i18nInit}>
+						{isReady ? getLayout(<Component {...pageProps} />) : <SplashScreen />}
+					</I18nextProvider>
+				</QueryClientProvider>
 			</div>
 		</div>
 	)
