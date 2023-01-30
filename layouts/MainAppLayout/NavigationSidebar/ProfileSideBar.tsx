@@ -1,8 +1,8 @@
 import AvatarContainerWithWrapper from "@components/common/AvatarContainer";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { navigationSidebarIcons } from "@constants/icons";
-import { NavItemProps } from "@constants/icons";
+import { navigationSidebarIcons } from "@constants/index";
+import { NavItemProps } from "@constants/index";
 import { useRouter } from "next/router";
 const badgesImages = [
   "/images/badges/age-s.png",
@@ -36,7 +36,7 @@ const CountContainer: React.FC<{
 const NavItem: React.FC<NavItemProps> = ({ Icon, href, title }) => {
   const router = useRouter();
   const isActiveRoute = router?.pathname === href;
-  const {t} = useTranslation()
+  const { t } = useTranslation();
   return (
     <div
       onClick={() => router.push(href)}
@@ -78,11 +78,7 @@ const ProfileSideBar = () => {
         className="w-full h-[75px] relative  bg-gray-100 dark:bg-darkOne bg-cover "
       >
         <div
-          className={`absolute bottom-0 start-1/2 translate-y-3/4  w-fit ${
-            i18n.language.startsWith("en")
-              ? "-translate-x-1/2"
-              : "translate-x-1/2"
-          }`}
+          className={`absolute bottom-0 start-1/2 translate-y-3/4  w-fit ltr:-translate-x-1/2 rtl:translate-x-1/2`}
         >
           <AvatarContainerWithWrapper
             size="medium"

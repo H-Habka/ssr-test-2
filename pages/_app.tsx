@@ -13,7 +13,6 @@ import SplashScreen from "@components/common/SplashScreen";
 import { useRouter } from "next/router";
 import { useUserStore } from "store/userStore";
 import { Toaster } from "react-hot-toast";
-import ErrorHandler from "@components/common/ErrorHandler";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -78,7 +77,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
       </Head>
       <div className="selection:text-white selection:bg-lightTwo selection:dark:text-white selection:dark:bg-darkThree">
         <SplashScreen className={` ${isReady ? "opacity-0" : "opacity-100"}`} />
-        <ErrorHandler />
+        <Toaster position="top-center" toastOptions={{ duration: 3000 }} />
         {isReady ? (
           getLayout(
             <QueryClientProvider client={queryClient}>

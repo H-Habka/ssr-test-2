@@ -45,18 +45,13 @@ const Login: NextPageWithLayout = () => {
     setError(globalError);
   }
 
-  // console.log(validationErrors);
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
       className="relative flex flex-col items-center bg-white dark:bg-darkOne rounded-xl w-[90vw] min-w-[300px] max-w-[470px] 380:px-8 420:px-12 380:py-8 420:py-14 mt-6 py-6 px-4 mb-6 1230:mb-0 1230:mt-0 1230:h-screen 1230:justify-center 1230:rounded-none"
     >
       <div
-        className={`absolute hidden 1230:block top-0 -translate-y-1/2 start-0  ${
-          i18n.language.startsWith("en")
-            ? "-translate-x-1/2"
-            : "translate-x-1/2"
-        }`}
+        className={`absolute hidden 1230:block top-0 -translate-y-1/2 start-0 ltr:-translate-x-1/2 rtl:translate-x-1/2`}
       >
         <img src="/images/common/rocket.webp" alt="rocket" />
       </div>
@@ -84,20 +79,13 @@ const Login: NextPageWithLayout = () => {
         </p>
       </div>
       <div className="1230:mt-8 w-full mt-4 ">
-        <CustomButton
-          isLoading={isLoading}
-          variant="one"
-        >
+        <CustomButton isLoading={isLoading} variant="one">
           {isLoading ? `${t("loading")}...` : t("login to your account")}
         </CustomButton>
       </div>
       <div className="mt-6 1230:mt-12 border-b relative w-full">
         <p
-          className={`text-center font-black text-2xl 640:text-sm 640:font-medium whitespace-nowrap bg-white dark:bg-darkOne dark:text-white absolute bottom-0 translate-y-1/2 start-1/2 w-fit px-2   ${
-            i18n.language.startsWith("en")
-              ? "-translate-x-1/2"
-              : "translate-x-1/2"
-          }`}
+          className={`text-center font-black text-2xl 640:text-sm 640:font-medium whitespace-nowrap bg-white dark:bg-darkOne dark:text-white absolute bottom-0 translate-y-1/2 start-1/2 w-fit px-2 ltr:-translate-x-1/2 rtl:translate-x-1/2`}
         >
           {sm ? t("login with your social account") : t("or")}
         </p>

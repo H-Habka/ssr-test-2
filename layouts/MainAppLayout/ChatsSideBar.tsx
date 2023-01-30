@@ -36,7 +36,7 @@ const MessageItem: React.FC<MessageItemProps> = ({
 const ChatsSideBar = () => {
   const rightBarStatus = useGlobalStore((state) => state.rightBarStatus);
   const setRightBarStatus = useGlobalStore((state) => state.setRightBarStatus);
-  const { t,i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [userSelected, setUserSelected] = useState<boolean>(false);
   return (
     <div
@@ -50,11 +50,7 @@ const ChatsSideBar = () => {
         } ${
           userSelected
             ? "translate-x-0"
-            : `${
-                i18n.language.startsWith("en")
-                  ? "translate-x-full"
-                  : "-translate-x-full"
-              }`
+            : "ltr:translate-x-full rtl:-translate-x-full"
         } `}
       ></div>
       <div
@@ -116,9 +112,9 @@ const ChatsSideBar = () => {
         className={`bg-lightTwo dark:bg-darkThree h-[80px] w-full flex  items-center cursor-pointer justify-start px-6 relative `}
       >
         <BiMenuAltRight
-          className={`w-8 h-8 fill-white transition-all duration-300 ${
-            i18n.language.startsWith("en") ? "scale-x-[1]" : "scale-x-[-1]"
-          } ${rightBarStatus ? "scale-y-[-1]" : ""}`}
+          className={`w-8 h-8 fill-white transition-all duration-300 ltr:scale-x-[1] rtl:scale-x-[-1]  ${
+            rightBarStatus && "scale-y-[-1]"
+          }`}
         />
         <p
           className={`font-bold  ms-4 text-white transition-all duration-500 delay-500 whitespace-nowrap absolute top-1/2 -translate-y-1/2 start-16 `}

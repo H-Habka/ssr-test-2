@@ -1,6 +1,6 @@
 import React from "react";
 import IconButton from "./IconButton";
-import { navigationSidebarIcons } from "@constants/icons";
+import { navigationSidebarIcons } from "@constants/index";
 import AvatarContainer from "@components/common/AvatarContainer";
 import { useGlobalStore } from "@store/globalStore";
 import { useTranslation } from "react-i18next";
@@ -16,11 +16,7 @@ const NavigationSidebar = () => {
         <div
           className={`absolute top-0 left-0 flex flex-col items-center gap-[14px] py-4 z-[1] w-full h-full transition-all duration-500 bg-white dark:bg-darkOne ease-in-out  ${
             leftBarStatus
-              ? `delay-0 ${
-                  i18n.language.startsWith("en")
-                    ? "-translate-x-full"
-                    : "translate-x-full"
-                }`
+              ? "ltr:-translate-x-full rtl:translate-x-full delay-0"
               : "-translate-x-0 delay-700"
           }`}
         >
@@ -40,11 +36,7 @@ const NavigationSidebar = () => {
         <div
           className={`absolute top-0 start-0 bg-lightFour dark:bg-darkOne w-[300px] h-full transition-all duration-700 ease-in-out overflow-y-auto scrollbar-custom-thin ${
             !leftBarStatus
-              ? `delay-0 ${
-                  i18n.language.startsWith("en")
-                    ? "-translate-x-full"
-                    : "translate-x-full"
-                }`
+              ? "delay-0 ltr:-translate-x-full rtl:translate-x-full"
               : "-translate-x-0 delay-500"
           }`}
         >

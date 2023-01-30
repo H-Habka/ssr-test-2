@@ -34,11 +34,7 @@ const Signup: NextPageWithLayout = () => {
       className="flex flex-col items-center bg-white dark:bg-darkOne rounded-xl w-[90vw] min-w-[300px] max-w-[470px] 380:px-8 420:px-12 380:py-8 420:py-10 mt-6 py-6 px-4 mb-6 1230:py-4 1230:rounded-none relative 1230:h-screen 1230:justify-center"
     >
       <div
-        className={`absolute hidden 1230:block top-0 -translate-y-1/2 start-0 ${
-          i18n.language.startsWith("en")
-            ? "-translate-x-1/2"
-            : "translate-x-1/2"
-        }`}
+        className={`absolute hidden 1230:block top-0 -translate-y-1/2 start-0 ltr:-translate-x-1/2 rtl:translate-x-1/2"`}
       >
         <img src="/images/common/rocket.webp" alt="rocket" />
       </div>

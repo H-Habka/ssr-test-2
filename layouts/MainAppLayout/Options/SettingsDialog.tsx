@@ -3,57 +3,11 @@ import { useRouter } from "next/router";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import AvatarContainerWithWrapper from "@components/common/AvatarContainer";
+import { settingsNavItems } from "@constants/index";
 
 interface SettingsDialogProps {
   isOpen: boolean;
 }
-
-const NavItemsData = [
-  {
-    groupTitle: "my profile",
-    children: [
-      { href: "/settings/my_profile/profile_info", title: "profile info" },
-      {
-        href: "/settings/my_profile/social_and_stream",
-        title: "social & stream",
-      },
-      { href: "/settings/my_profile/notifications", title: "notifications" },
-      { href: "/settings/my_profile/messages", title: "messages" },
-      {
-        href: "/settings/my_profile/friend_requests",
-        title: "friend requests",
-      },
-    ],
-  },
-  {
-    groupTitle: "account",
-    children: [
-      { href: "/settings/account/account_info", title: "account info" },
-      { href: "/settings/account/change_password", title: "change password" },
-      { href: "/settings/account/general_settings", title: "general settings" },
-    ],
-  },
-  {
-    groupTitle: "groups",
-    children: [
-      { href: "/settings/groups/manage_groups", title: "manage groups" },
-      { href: "/settings/groups/invitations", title: "invitations" },
-    ],
-  },
-  {
-    groupTitle: "my store",
-    children: [
-      {
-        href: "/settings/my_store/my_account",
-        title: "my account",
-        ExtraText: "$250.30",
-      },
-      { href: "/settings/my_store/sales_statement", title: "sales statement" },
-      { href: "/settings/my_store/manage_items", title: "manage items" },
-      { href: "/settings/my_store/downloads", title: "downloads" },
-    ],
-  },
-];
 
 const SettingsDialog: React.FC<SettingsDialogProps> = ({ isOpen }) => {
   const router = useRouter();
@@ -77,20 +31,26 @@ const SettingsDialog: React.FC<SettingsDialogProps> = ({ isOpen }) => {
           />
         </div>
         <div className="">
-          <p className="font-bold text-sm text-gray-700 dark:text-gray-200">{t("hi")} Hossien</p>
-          <p className="text-[12px] font-semibold cursor-pointer hover:text-lightTwo dark:hover:text-darkFour transition-all duration-300 text-gray-500 dark:text-gray-400" dir="ltr">
+          <p className="font-bold text-sm text-gray-700 dark:text-gray-200">
+            {t("hi")} Hossien
+          </p>
+          <p
+            className="text-[12px] font-semibold cursor-pointer hover:text-lightTwo dark:hover:text-darkFour transition-all duration-300 text-gray-500 dark:text-gray-400"
+            dir="ltr"
+          >
             @marinavalentine
           </p>
         </div>
       </div>
 
-      {NavItemsData.map((item) => (
-        <div className="px-[18px] font-bold">
+      {settingsNavItems.map((item) => (
+        <div key={item.id} className="px-[18px] font-bold">
           <p className=" text-gray-400 dark:text-gray-500 mt-4 mb-2 text-[13px]">
             {t(item.groupTitle).toUpperCase()}
           </p>
           {item.children.map((child) => (
             <p
+              key={child.id}
               onClick={() => router.push(child.href)}
               className={`text-[12px] mt-1 text-gray-700 dark:text-white cursor-pointer transition-all duration-500  hover:ps-1 hover:text-lightTwo dark:hover:text-darkFour py-px  ${
                 child.ExtraText ? "w-full flex justify-between" : "w-fit"
