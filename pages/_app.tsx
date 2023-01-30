@@ -15,62 +15,62 @@ import { useUserStore } from "store/userStore"
 import { Toaster } from "react-hot-toast"
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
-	getLayout?: (page: ReactElement) => ReactNode
+  getLayout?: (page: ReactElement) => ReactNode
 }
 type AppPropsWithLayout = AppProps & {
-	Component: NextPageWithLayout
+  Component: NextPageWithLayout
 }
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
-	const queryClient = new QueryClient()
-	const { i18n } = useTranslation()
-	const [isReady, setIsReady] = useState<boolean>(false)
-	const darkMode = useGlobalStore((state) => state.darkMode)
-	const setDarkMode = useGlobalStore((state) => state.setDarkMode)
-	const router = useRouter()
-	const user = useUserStore((state) => state.user)
+  const queryClient = new QueryClient()
+  const { i18n } = useTranslation()
+  const [isReady, setIsReady] = useState<boolean>(false)
+  const darkMode = useGlobalStore((state) => state.darkMode)
+  const setDarkMode = useGlobalStore((state) => state.setDarkMode)
+  const router = useRouter()
+  const user = useUserStore((state) => state.user)
 
-	useEffect(() => {
-		// if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-		//   setDarkMode(true);
-		// }
-		// setIsReady(true);
-		document.documentElement.lang = i18n.language
-		document.documentElement.dir = i18n.language.startsWith("en") ? "ltr" : "rtl"
-	}, [])
+  useEffect(() => {
+    // if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    //   setDarkMode(true);
+    // }
+    // setIsReady(true);
+    document.documentElement.lang = i18n.language
+    document.documentElement.dir = i18n.language.startsWith("en") ? "ltr" : "rtl"
+  }, [])
 
-	// useEffect(() => {
-	//   if (!user) {
-	//     router.push("/auth/signup");
-	//     setIsReady(true);
-	//   } else {
-	//     router.push("/social/newsfeed");
-	//     setIsReady(true);
-	//   }
-	// }, [user]);
+  // useEffect(() => {
+  //   if (!user) {
+  //     router.push("/auth/signup");
+  //     setIsReady(true);
+  //   } else {
+  //     router.push("/social/newsfeed");
+  //     setIsReady(true);
+  //   }
+  // }, [user]);
 
-	useEffect(() => {
-		setIsReady(true)
-	}, [])
+  useEffect(() => {
+    setIsReady(true)
+  }, [])
 
-	const getLayout = Component.getLayout ?? ((page) => page)
+  const getLayout = Component.getLayout ?? ((page) => page)
 
-	return (
-		<div className={`${darkMode ? "dark" : ""}`}>
-			<Head>
-				<link rel="icon" href="/logo-dark.ico" media="(prefers-color-scheme: light)" type="image/png" />
-				<link rel="icon" href="/logo-white.ico" media="(prefers-color-scheme: dark)" type="image/png" sizes="256x256" />
-				<title>Vikinger</title>
-			</Head>
-			<div className="selection:text-white selection:bg-lightTwo selection:dark:text-white selection:dark:bg-darkThree">
-				<SplashScreen className={` ${isReady ? "opacity-0" : "opacity-100"}`} />
-				<Toaster position="top-center" toastOptions={{ duration: 3000 }} />
-				<QueryClientProvider client={queryClient}>
-					<I18nextProvider i18n={i18nInit}>
-						{isReady ? getLayout(<Component {...pageProps} />) : <SplashScreen />}
-					</I18nextProvider>
-				</QueryClientProvider>
-			</div>
-		</div>
-	)
+  return (
+    <div className={`${darkMode ? "dark" : ""}`}>
+      <Head>
+        <link rel="icon" href="/logo-dark.ico" media="(prefers-color-scheme: light)" type="image/png" />
+        <link rel="icon" href="/logo-white.ico" media="(prefers-color-scheme: dark)" type="image/png" sizes="256x256" />
+        <title>Vikinger</title>
+      </Head>
+      <div className="selection:text-white selection:bg-lightTwo selection:dark:text-white selection:dark:bg-darkThree">
+        <SplashScreen className={` ${isReady ? "opacity-0" : "opacity-100"}`} />
+        <Toaster position="top-center" toastOptions={{ duration: 3000 }} />
+        <QueryClientProvider client={queryClient}>
+          <I18nextProvider i18n={i18nInit}>
+            {isReady ? getLayout(<Component {...pageProps} />) : <SplashScreen />}
+          </I18nextProvider>
+        </QueryClientProvider>
+      </div>
+    </div>
+  )
 }
